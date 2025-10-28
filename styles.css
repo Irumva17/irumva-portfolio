@@ -392,6 +392,7 @@ section {
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1;
 }
 
 .scroll-indicator {
@@ -760,19 +761,19 @@ flex: 1;
 
 .lightbox-close {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     width: 45px;
     height: 45px;
     background: white;
-    border: none;
+    border: 2px solid var(--primary-color);
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     z-index: 10001;
 }
 
@@ -784,6 +785,7 @@ flex: 1;
 .lightbox-close svg {
     color: var(--text-dark);
     stroke: var(--text-dark);
+    stroke-width: 3;
 }
 
 .lightbox-close:hover svg {
@@ -891,14 +893,19 @@ flex: 1;
 .about-lightbox-content {
     max-width: 600px;
     width: 95%;
+    max-height: 90vh;
     background: white;
     border-radius: 20px;
     padding: 0;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .about-modal-content {
     padding: 40px;
+    overflow-y: auto;
+    flex: 1;
 }
 
 .about-header {
@@ -1601,71 +1608,137 @@ flex: 1;
 }
 
 @media (max-width: 480px) {
+    .hero {
+        padding-bottom: 100px;
+    }
+
     .hero-title {
-        font-size: 1.5rem;
-        line-height: 1.5;
+        font-size: 1.3rem;
+        line-height: 1.6;
     }
 
     .highlight, .highlight-title {
-        font-size: 0.9em;
-        min-width: 80px;
+        font-size: 0.85em;
+        min-width: 60px;
+        display: inline;
     }
 
     .hero-description {
         text-align: left;
         margin-left: 15px;
         padding-right: 15px;
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .hero-fun {
         text-align: left;
         margin-left: 15px;
         margin-right: 15px;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         padding: 10px 12px;
     }
 
     .hero-buttons {
-        margin-left: 15px;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 15px;
         gap: 10px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .btn {
-        width: calc(100% - 30px);
+        width: 100%;
+        max-width: 300px;
         font-size: 0.9rem;
         padding: 10px 20px;
+        text-align: center;
+    }
+
+    .hero-scroll {
+        bottom: 20px;
+    }
+
+    .scroll-indicator {
+        width: 25px;
+        height: 40px;
+    }
+
+    .about-lightbox-content {
+        width: 92%;
+        max-width: 92vw;
+        max-height: 85vh;
     }
 
     .about-modal-content {
-        padding: 30px 20px;
+        padding: 60px 15px 25px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .about-avatar {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
     }
 
+    .about-header {
+        margin-bottom: 25px;
+    }
 
     .about-header h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+    }
+
+    .about-details {
+        gap: 12px;
     }
 
     .about-item {
-        padding: 15px;
-        gap: 15px;
+        padding: 12px;
+        gap: 12px;
     }
 
     .about-item > i {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        min-width: 25px;
+    }
+
+    .about-label {
+        font-size: 0.75rem;
     }
 
     .about-value {
-        font-size: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .about-lightbox .lightbox-close {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+        background: var(--primary-color);
+        border: 3px solid white;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        z-index: 10002;
+    }
+
+    .about-lightbox .lightbox-close svg {
+        width: 22px;
+        height: 22px;
+        stroke: white;
+        color: white;
+        stroke-width: 3;
+    }
+
+    .about-lightbox .lightbox-close:hover {
+        background: var(--primary-dark);
+        transform: scale(1.1);
     }
 
     .cv-lightbox-content {
-        width: 98%;
+        width: 95%;
         max-height: 90vh;
     }
 
@@ -1683,6 +1756,7 @@ flex: 1;
         width: 100%;
         justify-content: center;
         padding: 12px 20px;
+        font-size: 0.9rem;
     }
 
     .section-title {
