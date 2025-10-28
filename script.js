@@ -427,15 +427,19 @@ const certificateImage = document.getElementById('certificateImage');
 const certificateTitle = document.getElementById('certificateTitle');
 const closeLightbox = document.getElementById('closeLightbox');
 
-// Certificate data mapping (only for items with actual certificates)
+// Certificate data mapping with images
 const certificates = {
     'ml-cert': {
-        image: 'images/machineLearning.jpg',
+        image: 'images/Certificates/machineLearning_1.jpg',
         title: 'Machine Learning Certificate'
     },
     'embedded-cert': {
-        image: 'images/embedded-certificate.jpg',
+        image: 'images/Certificates/embeddedsystem_3.jpg',
         title: 'Embedded Systems Certificate'
+    },
+    'datascience-cert': {
+        image: 'images/Certificates/DataScience_2.jpg',
+        title: 'Data Science Certificate - 1st Place Hackathon Winner'
     }
 };
 
@@ -471,6 +475,188 @@ certificateLightbox.addEventListener('click', function(e) {
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && certificateLightbox.classList.contains('active')) {
         closeCertificateLightbox();
+    }
+});
+
+// ===== CV Lightbox Functionality =====
+const cvLightbox = document.getElementById('cvLightbox');
+const viewCvBtn = document.getElementById('viewCvBtn');
+const closeCvLightbox = document.getElementById('closeCvLightbox');
+
+// Open CV lightbox
+viewCvBtn.addEventListener('click', function() {
+    cvLightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+// Close CV lightbox
+function closeCvModal() {
+    cvLightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+closeCvLightbox.addEventListener('click', closeCvModal);
+
+// Close on background click
+cvLightbox.addEventListener('click', function(e) {
+    if (e.target === cvLightbox) {
+        closeCvModal();
+    }
+});
+
+// Close on ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && cvLightbox.classList.contains('active')) {
+        closeCvModal();
+    }
+});
+
+// ===== Project Gallery Functionality =====
+const projectGalleryLightbox = document.getElementById('projectGalleryLightbox');
+const galleryMainImage = document.getElementById('galleryMainImage');
+const galleryThumbnails = document.getElementById('galleryThumbnails');
+const closeGalleryLightbox = document.getElementById('closeGalleryLightbox');
+const galleryPrev = document.querySelector('.gallery-prev');
+const galleryNext = document.querySelector('.gallery-next');
+
+const projectImages = {
+    'event-ticket': [
+        'images/Flutter_images/1.jpg',
+        'images/Flutter_images/2.jpg',
+        'images/Flutter_images/3.jpg',
+        'images/Flutter_images/4.jpg',
+        'images/Flutter_images/5.jpg',
+        'images/Flutter_images/6.jpg'
+    ]
+};
+
+let currentProject = '';
+let currentImageIndex = 0;
+
+// Open gallery from project images
+document.querySelectorAll('.project-img').forEach(img => {
+    img.addEventListener('click', function() {
+        currentProject = this.getAttribute('data-project');
+        currentImageIndex = parseInt(this.getAttribute('data-index'));
+        openGallery();
+    });
+});
+
+function openGallery() {
+    const images = projectImages[currentProject];
+    if (!images) return;
+    
+    // Set main image
+    galleryMainImage.src = images[currentImageIndex];
+    
+    // Create thumbnails
+    galleryThumbnails.innerHTML = '';
+    images.forEach((img, index) => {
+        const thumb = document.createElement('img');
+        thumb.src = img;
+        thumb.classList.add(index === currentImageIndex ? 'active' : '');
+        thumb.addEventListener('click', () => {
+            currentImageIndex = index;
+            updateGallery();
+        });
+        galleryThumbnails.appendChild(thumb);
+    });
+    
+    projectGalleryLightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function updateGallery() {
+    const images = projectImages[currentProject];
+    galleryMainImage.src = images[currentImageIndex];
+    
+    // Update active thumbnail
+    const thumbs = galleryThumbnails.querySelectorAll('img');
+    thumbs.forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === currentImageIndex);
+    });
+}
+
+// Navigation
+galleryPrev.addEventListener('click', () => {
+    const images = projectImages[currentProject];
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    updateGallery();
+});
+
+galleryNext.addEventListener('click', () => {
+    const images = projectImages[currentProject];
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    updateGallery();
+});
+
+// Close gallery
+function closeGallery() {
+    projectGalleryLightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+closeGalleryLightbox.addEventListener('click', closeGallery);
+
+projectGalleryLightbox.addEventListener('click', function(e) {
+    if (e.target === projectGalleryLightbox) {
+        closeGallery();
+    }
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+    if (projectGalleryLightbox.classList.contains('active')) {
+        if (e.key === 'Escape') {
+            closeGallery();
+        } else if (e.key === 'ArrowLeft') {
+            galleryPrev.click();
+        } else if (e.key === 'ArrowRight') {
+            galleryNext.click();
+        }
+    }
+});
+
+// ===== About Me Lightbox Functionality =====
+const aboutLightbox = document.getElementById('aboutLightbox');
+const viewAboutBtn = document.getElementById('viewAboutBtn');
+const learnMoreBtn = document.getElementById('learnMoreBtn');
+const closeAboutLightbox = document.getElementById('closeAboutLightbox');
+
+// Open About lightbox from Hero button
+if (viewAboutBtn) {
+    viewAboutBtn.addEventListener('click', function() {
+        aboutLightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+// Open About lightbox from About section button
+if (learnMoreBtn) {
+    learnMoreBtn.addEventListener('click', function() {
+        aboutLightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+}
+
+// Close About lightbox
+function closeAboutModal() {
+    aboutLightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+closeAboutLightbox.addEventListener('click', closeAboutModal);
+
+aboutLightbox.addEventListener('click', function(e) {
+    if (e.target === aboutLightbox) {
+        closeAboutModal();
+    }
+});
+
+// Close on ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && aboutLightbox.classList.contains('active')) {
+        closeAboutModal();
     }
 });
 

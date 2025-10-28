@@ -27,6 +27,7 @@
                 <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -50,8 +51,14 @@
                     I'm also passionate about traveling ✈️ and discovering new places!
                 </p>
                 <div class="hero-buttons">
+                    <button class="btn btn-about" id="viewAboutBtn">
+                        <i class="fas fa-user"></i> About Me
+                    </button>
                     <a href="#contact" class="btn btn-primary">Get in Touch</a>
                     <a href="#experience" class="btn btn-secondary">View Experience</a>
+                    <button class="btn btn-cv" id="viewCvBtn">
+                        <i class="fas fa-file-alt"></i> View CV
+                    </button>
                 </div>
             </div>
             <div class="hero-scroll">
@@ -85,6 +92,9 @@
                         high-performance APIs and Flutter for mobile development. My goal is to create efficient, 
                         maintainable, and user-centric solutions that make a real impact.
                     </p>
+                    <button class="btn btn-learn-more" id="learnMoreBtn">
+                        <i class="fas fa-info-circle"></i> Learn More About Me
+                    </button>
                 </div>
             </div>
         </div>
@@ -193,7 +203,25 @@
                             Training in embedded systems programming, microcontroller architectures, and IoT device development.
                         </p>
                         <div class="certificate-badge" data-cert="embedded-cert">
-                            <!-- Certificate image will go here -->
+                            <span class="badge-placeholder">📄 Click to view certificate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item certification">
+                    <div class="experience-icon-badge datascience-badge">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="experience-details">
+                        <div class="experience-header">
+                            <h3>Data Science Certificate - 🏆 1st Place Hackathon Winner</h3>
+                            <span class="experience-date">Completed</span>
+                        </div>
+                        <p class="experience-company">AI, Machine Learning & Data Science Workshop</p>
+                        <p class="experience-description">
+                            Intensive one-week workshop covering AI, Machine Learning, and Data Science. Won 1st place in hackathon with team project: an intelligent mobile app empowering women with self-defense tools, health resources, and sexual wellness education.
+                        </p>
+                        <div class="certificate-badge" data-cert="datascience-cert">
                             <span class="badge-placeholder">📄 Click to view certificate</span>
                         </div>
                     </div>
@@ -256,6 +284,35 @@
         </div>
     </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Check out some of my recent work</p>
+            
+            <div class="projects-grid">
+                <!-- Project 1: Event Ticket App -->
+                <div class="project-card">
+                    <div class="project-images">
+                        <img src="images/Flutter_images/1.jpg" alt="Event Ticket App" class="project-img" data-project="event-ticket" data-index="0">
+                        <img src="images/Flutter_images/2.jpg" alt="Event Ticket App" class="project-img" data-project="event-ticket" data-index="1">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Event Ticket Booking App</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">Dart</span>
+                            <span class="project-tag">Mobile</span>
+                        </div>
+                        <p class="project-description">
+                            Mobile app for booking sports event tickets with seat selection and secure payment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -266,35 +323,16 @@
                     Feel free to reach out through any of the channels below.
                 </p>
                 <div class="contact-methods">
-                    <a href="mailto:irumvaarsene1@gmail.com" class="contact-card">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                        </div>
-                        <h3>Email</h3>
-                        <p>irumvaarsene1@gmail.com</p>
+                    <a href="mailto:irumvaarsene1@gmail.com" class="contact-logo" title="Email Me">
+                        <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/irumva-arsene-761b222a6/" target="_blank" class="contact-card">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </div>
-                        <h3>LinkedIn</h3>
-                        <p>linkedin.com/in/irumva-arsene</p>
+                    
+                    <a href="https://www.linkedin.com/in/irumva-arsene-761b222a6/" target="_blank" class="contact-logo linkedin" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://github.com/irumva17/" target="_blank" class="contact-card">
-                        <div class="contact-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                            </svg>
-                        </div>
-                        <h3>GitHub</h3>
-                        <p>github.com/irumva17</p>
+                    
+                    <a href="https://github.com/irumva17/" target="_blank" class="contact-logo github" title="GitHub">
+                        <i class="fab fa-github"></i>
                     </a>
                 </div>
             </div>
@@ -305,13 +343,8 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-info">
-                    <h3>Irumva</h3>
-                    <p>Software Engineer</p>
-                </div>
-                <div class="footer-copyright">
-                    <p>&copy; 2025 Irumva. All rights reserved.</p>
-                </div>
+                <p>&copy; 2025 Irumva Arsene. All rights reserved.</p>
+                <p class="footer-made">Made with <i class="fas fa-heart"></i> and <i class="fas fa-coffee"></i></p>
             </div>
         </div>
     </footer>
@@ -327,6 +360,115 @@
             </button>
             <img id="certificateImage" src="" alt="Certificate">
             <p class="certificate-title" id="certificateTitle"></p>
+        </div>
+    </div>
+
+    <!-- Project Gallery Lightbox -->
+    <div id="projectGalleryLightbox" class="lightbox project-gallery-lightbox">
+        <div class="lightbox-content gallery-lightbox-content">
+            <button class="lightbox-close" id="closeGalleryLightbox">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="gallery-main">
+                <button class="gallery-nav gallery-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <img id="galleryMainImage" src="" alt="Project Screenshot">
+                <button class="gallery-nav gallery-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="gallery-thumbnails" id="galleryThumbnails"></div>
+        </div>
+    </div>
+
+    <!-- About Me Lightbox -->
+    <div id="aboutLightbox" class="lightbox about-lightbox">
+        <div class="lightbox-content about-lightbox-content">
+            <button class="lightbox-close" id="closeAboutLightbox">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="about-modal-content">
+                <div class="about-header">
+                    <div class="about-avatar">
+                        <img src="images/Arsene.jpg" alt="Irumva Arsene">
+                    </div>
+                    <h2>About Me</h2>
+                </div>
+                <div class="about-details">
+                    <div class="about-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <div class="about-item-content">
+                            <span class="about-label">Age</span>
+                            <span class="about-value">23 years old</span>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-flag"></i>
+                        <div class="about-item-content">
+                            <span class="about-label">Nationality</span>
+                            <span class="about-value">Burundian 🇧🇮</span>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="about-item-content">
+                            <span class="about-label">Location</span>
+                            <span class="about-value">Burundi</span>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-code"></i>
+                        <div class="about-item-content">
+                            <span class="about-label">Role</span>
+                            <span class="about-value">Software Engineer</span>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div class="about-item-content">
+                            <span class="about-label">Education</span>
+                            <span class="about-value">Bachelor's in Software Engineering</span>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-heart"></i>
+                        <div class="about-item-content">
+                            <span class="about-label">Interests</span>
+                            <span class="about-value">Football, Gaming, Travel, Tech</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CV Lightbox -->
+    <div id="cvLightbox" class="lightbox cv-lightbox">
+        <div class="lightbox-content cv-lightbox-content">
+            <button class="lightbox-close" id="closeCvLightbox">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="cv-preview">
+                <img id="cvImage" src="images/cv/myCv.png" alt="My CV">
+            </div>
+            <div class="cv-actions">
+                <a href="images/cv/myCv.pdf" download="Irumva_CV.pdf" class="btn btn-download">
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+                <a href="images/cv/myCv.pdf" target="_blank" class="btn btn-view-pdf">
+                    <i class="fas fa-external-link-alt"></i> Open in New Tab
+                </a>
+            </div>
         </div>
     </div>
 
