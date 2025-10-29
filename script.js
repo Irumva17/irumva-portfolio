@@ -440,6 +440,10 @@ const certificates = {
     'datascience-cert': {
         image: 'images/Certificates/DataScience_2.jpg',
         title: 'Data Science Certificate - 1st Place Hackathon Winner'
+    },
+    'leadership-cert': {
+        image: 'images/Certificates/leadership.png',
+        title: 'Leadership Training Certificate'
     }
 };
 
@@ -614,6 +618,30 @@ document.addEventListener('keydown', function(e) {
         } else if (e.key === 'ArrowRight') {
             galleryNext.click();
         }
+    }
+});
+
+// ===== Calculate Age Dynamically =====
+function calculateAge(birthDate) {
+    const today = new Date();
+    const birth = new Date(birthDate);
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    
+    // If birthday hasn't occurred this year yet, subtract 1
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+        age--;
+    }
+    
+    return age;
+}
+
+// Update age on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const userAgeElement = document.getElementById('userAge');
+    if (userAgeElement) {
+        const age = calculateAge('2002-03-12');
+        userAgeElement.textContent = `${age} years old`;
     }
 });
 

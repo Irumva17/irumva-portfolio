@@ -137,6 +137,13 @@ section {
     font-weight: 500;
     transition: var(--transition);
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link i {
+    display: none;
 }
 
 .nav-link::after {
@@ -376,6 +383,9 @@ section {
     color: white;
     border: none;
     margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn-learn-more:hover {
@@ -638,7 +648,32 @@ background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
 }
 
 .datascience-badge {
-background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+}
+
+.leadership-badge {
+    background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+}
+
+.btn-course-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+
+.btn-course-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(6, 182, 212, 0.4);
 }
 
 .experience-details {
@@ -894,12 +929,16 @@ flex: 1;
     max-width: 600px;
     width: 95%;
     max-height: 90vh;
-    background: white;
+    background: rgba(224, 242, 254, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border-radius: 20px;
     padding: 0;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    border: 1px solid rgba(6, 182, 212, 0.4);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
 }
 
 .about-modal-content {
@@ -949,14 +988,17 @@ flex: 1;
     align-items: center;
     gap: 20px;
     padding: 20px;
-    background: var(--bg-light);
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 12px;
     transition: var(--transition);
+    border: 1px solid rgba(6, 182, 212, 0.3);
 }
 
 .about-item:hover {
-    background: #e0f2fe;
+    background: rgba(224, 242, 254, 0.8);
     transform: translateX(5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
 }
 
 .about-item > i {
@@ -1110,18 +1152,19 @@ flex: 1;
 }
 
 .contact-logo {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background: white;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
+    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
     position: relative;
     overflow: hidden;
+    border: 3px solid var(--primary-color);
 }
 
 .contact-logo::before {
@@ -1143,8 +1186,8 @@ flex: 1;
 }
 
 .contact-logo i {
-    font-size: 2.5rem;
-    color: white;
+    font-size: 1.8rem;
+    color: var(--primary-color);
     z-index: 1;
     transition: var(--transition);
 }
@@ -1158,22 +1201,17 @@ flex: 1;
     transform: rotate(360deg);
 }
 
-.contact-logo.linkedin {
-    background: linear-gradient(135deg, #0077B5 0%, #00A0DC 100%);
-    box-shadow: 0 10px 30px rgba(0, 119, 181, 0.4);
+.contact-logo:hover {
+    background: var(--primary-color);
 }
 
-.contact-logo.linkedin:hover {
-    box-shadow: 0 15px 40px rgba(0, 119, 181, 0.6);
+.contact-logo:hover i {
+    color: white;
 }
 
-.contact-logo.github {
-    background: linear-gradient(135deg, #333 0%, #24292e 100%);
-    box-shadow: 0 10px 30px rgba(36, 41, 46, 0.4);
-}
-
-.contact-logo.github:hover {
-    box-shadow: 0 15px 40px rgba(36, 41, 46, 0.6);
+.contact-logo.whatsapp:hover {
+    background: #25D366;
+    border-color: #25D366;
 }
 
 /* Pulse animation */
@@ -1373,15 +1411,11 @@ flex: 1;
 
 /* ===== Footer ===== */
 .footer {
-    background-image: 
-        linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%),
-        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: white;
+    background: var(--bg-light);
     padding: 30px 0;
+    text-align: center;
     position: relative;
+    border-top: 2px solid var(--primary-color);
 }
 
 .footer::before {
@@ -1390,7 +1424,7 @@ flex: 1;
     top: 0;
     left: 0;
     right: 0;
-    height: 1px;
+    height: 2px;
     background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
 }
 
@@ -1403,9 +1437,10 @@ flex: 1;
 }
 
 .footer-content p {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-dark);
     font-size: 0.95rem;
     margin: 0;
+    font-weight: 500;
 }
 
 .footer-made {
@@ -1490,6 +1525,12 @@ flex: 1;
 
     .nav-menu li:last-child {
         border-bottom: none;
+    }
+
+    .nav-link i {
+        display: inline-block;
+        font-size: 1.1rem;
+        color: var(--primary-color);
     }
 
     section {
@@ -1774,12 +1815,12 @@ flex: 1;
     }
 
     .contact-logo {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
     }
 
     .contact-logo i {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .contact-methods {
