@@ -31,6 +31,56 @@ setTimeout(() => {
     }, 5000);
 }, 500); // Wait 0.5 seconds before starting
 
+// ===== Animated Technologies for Courses =====
+const pythonTechElement = document.getElementById('pythonTech');
+const webDevTechElement = document.getElementById('webDevTech');
+
+const pythonTechs = ['SELENIUM', 'BEAUTIFUL SOUP', 'REQUEST', 'FLASK', 'PANDAS', 'NUMPY', 'SCIKIT LEARN', 'PLOTLY', 'MATPLOTLIB'];
+const webDevTechs = ['HTML', 'CSS', 'JAVASCRIPT', 'NODE', 'REACT', 'POSTGRESQL', 'WEB3', 'DAPPS'];
+
+let currentPythonIndex = 0;
+let currentWebDevIndex = 0;
+
+function animateTech(element, techs, indexRef) {
+    const currentTech = techs[indexRef.value];
+    let charIndex = 0;
+    element.textContent = '';
+    
+    const typingInterval = setInterval(() => {
+        if (charIndex < currentTech.length) {
+            element.textContent += currentTech[charIndex];
+            charIndex++;
+        } else {
+            clearInterval(typingInterval);
+        }
+    }, 80);
+}
+
+// Start tech animations
+if (pythonTechElement) {
+    setTimeout(() => {
+        const pythonIndex = { value: 0 };
+        animateTech(pythonTechElement, pythonTechs, pythonIndex);
+        
+        setInterval(() => {
+            pythonIndex.value = (pythonIndex.value + 1) % pythonTechs.length;
+            animateTech(pythonTechElement, pythonTechs, pythonIndex);
+        }, 3000);
+    }, 1000);
+}
+
+if (webDevTechElement) {
+    setTimeout(() => {
+        const webDevIndex = { value: 0 };
+        animateTech(webDevTechElement, webDevTechs, webDevIndex);
+        
+        setInterval(() => {
+            webDevIndex.value = (webDevIndex.value + 1) % webDevTechs.length;
+            animateTech(webDevTechElement, webDevTechs, webDevIndex);
+        }, 3000);
+    }, 1000);
+}
+
 // ===== Scroll Animations for Hero and About Sections =====
 const heroSection = document.querySelector('.hero');
 const aboutSection = document.querySelector('.about');
@@ -618,6 +668,35 @@ document.addEventListener('keydown', function(e) {
         } else if (e.key === 'ArrowRight') {
             galleryNext.click();
         }
+    }
+});
+
+// ===== Dark/Light Mode Toggle =====
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+const themeIcon = themeToggle.querySelector('i');
+
+// Check for saved theme preference or default to light mode
+const currentTheme = localStorage.getItem('theme') || 'light';
+if (currentTheme === 'dark') {
+    body.classList.add('dark-mode');
+    themeIcon.classList.remove('fa-moon');
+    themeIcon.classList.add('fa-sun');
+}
+
+// Toggle theme
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    
+    // Update icon
+    if (body.classList.contains('dark-mode')) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
     }
 });
 
