@@ -1711,6 +1711,20 @@ flex: 1;
         gap: 0;
     }
 
+    /* Dark mode mobile menu fixes */
+    body.dark-mode .nav-menu {
+        background: #0f172a;
+        box-shadow: var(--shadow-lg);
+    }
+
+    body.dark-mode .nav-menu li {
+        border-bottom: 1px solid #334155;
+    }
+
+    body.dark-mode .mobile-menu-btn span {
+        background: #f1f5f9;
+    }
+
     .nav-menu.active {
         transform: translateY(0);
         opacity: 1;
