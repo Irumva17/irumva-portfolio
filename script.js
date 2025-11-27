@@ -581,6 +581,12 @@ const projectImages = {
         'images/Flutter_images/4.jpg',
         'images/Flutter_images/5.jpg',
         'images/Flutter_images/6.jpg'
+    ],
+    'ijwi': [
+        'images/ijwi/1.png',
+        'images/ijwi/2.png',
+        'images/ijwi/3.png',
+        'images/ijwi/4.png'
     ]
 };
 
