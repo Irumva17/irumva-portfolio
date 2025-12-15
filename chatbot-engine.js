@@ -192,6 +192,9 @@ class ChatbotEngine {
       case 'gallery':
         this.openGallery(action.target);
         break;
+      case 'open-cert':
+        this.openCertificate(action.target);
+        break;
       case 'show':
         this.showContent(action.target);
         break;
@@ -209,12 +212,12 @@ class ChatbotEngine {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       
       // Close chatbot after navigation (optional)
-      setTimeout(() => {
-        const chatbot = document.getElementById('chatbotWidget');
-        if (chatbot) {
-          chatbot.classList.remove('active');
-        }
-      }, 500);
+      // setTimeout(() => {
+      //   const chatbot = document.getElementById('chatbotWidget');
+      //   if (chatbot) {
+      //     chatbot.classList.remove('active');
+      //   }
+      // }, 500);
     }
   }
 
@@ -236,6 +239,19 @@ class ChatbotEngine {
     if (modal) {
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
+    }
+  }
+  
+  openCertificate(certId) {
+    // certificates are opened by clicking the badge in script.js
+    // We can simulate this click
+    const badge = document.querySelector(`.certificate-badge[data-cert="${certId}"]`);
+    if (badge) {
+      badge.click();
+    } else {
+      console.warn(`Certificate badge not found for: ${certId}`);
+      // Fallback to navigating to courses section
+      this.navigateToSection('#courses');
     }
   }
 

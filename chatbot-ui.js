@@ -315,7 +315,8 @@ class ChatbotUI {
       'modal': 'window-maximize',
       'gallery': 'images',
       'show': 'eye',
-      'send': 'comment'
+      'send': 'comment',
+      'open-cert': 'certificate'
     };
     return icons[actionType] || 'arrow-right';
   }

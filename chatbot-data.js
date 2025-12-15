@@ -360,7 +360,7 @@ const chatbotIntents = [
   {
     tag: "greeting",
     patterns: [
-      "hi", "hello", "hey", "good morning", "good afternoon", "good evening",
+      "hi", "hello", "hey", "hy", "good morning", "good afternoon", "good evening",
       "greetings", "what's up", "howdy", "hola", "bonjour", "salut"
     ],
     responses: [
@@ -485,13 +485,33 @@ const chatbotIntents = [
       "where did you study", "school", "college", "bachelor"
     ],
     responses: [
-      "Irumva's Educational Background: 🎓\n\n**Bachelor's Degree in Software Engineering**\n📍 Université du Lac Tanganyika (2021-2024)\nComprehensive program covering software design, algorithms, data structures, web development, and architecture.\n\n**High School Diploma**\n📍 Biologie, Chimie & Science de la Terre (2017-2020)\nStrong scientific foundation in biochemistry and earth sciences.\n\nHe also completed multiple professional courses and certifications!"
+      "Irumva's Educational Background: 🎓\n\n**Bachelor's Degree in Software Engineering**\n📍 Université du Lac Tanganyika (2021-2024)\n\n**Certifications:**\n• Machine Learning (FreeCodeCamp)\n• Embedded Systems\n• Data Science (Hackathon Winner)\n• Leadership Training\n\nWhich certificate would you like to see?"
     ],
     context: ["education"],
     quickActions: [
-      { text: "View Courses", action: "navigate", target: "#courses" },
-      { text: "See Certificates", action: "show", target: "certificates" },
-      { text: "Education Timeline", action: "navigate", target: "#education" }
+      { text: "View ML Cert", action: "open-cert", target: "ml-cert" },
+      { text: "View Data Science Cert", action: "open-cert", target: "datascience-cert" },
+      { text: "View Leadership Cert", action: "open-cert", target: "leadership-cert" },
+      { text: "Embedded Systems", action: "open-cert", target: "embedded-cert" }
+    ]
+  },
+
+  // ===== CERTIFICATES SPECIFIC =====
+  {
+    tag: "certificates",
+    patterns: [
+      "show certificates", "certificates", "certs", "diplomas", "awards",
+      "what certificates", "certifications"
+    ],
+    responses: [
+      "Here are Irumva's key certifications! 🏆\n\nYou can click the buttons below to view the actual documents:\n\n1. **Machine Learning** - FreeCodeCamp\n2. **Data Science** - Hackathon Winner\n3. **Embedded Systems**\n4. **Leadership Training**"
+    ],
+    context: ["education", "certificates"],
+    quickActions: [
+      { text: "Machine Learning", action: "open-cert", target: "ml-cert" },
+      { text: "Data Science", action: "open-cert", target: "datascience-cert" },
+      { text: "Leadership", action: "open-cert", target: "leadership-cert" },
+      { text: "Embedded Systems", action: "open-cert", target: "embedded-cert" }
     ]
   },
 
