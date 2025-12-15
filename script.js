@@ -1,6 +1,6 @@
 // ===== Animated Title in Hero (Name stays fixed as Irumva) =====
 const heroTitle = document.getElementById('heroTitle');
-const titles = ['Software Engineer', 'Backend Developer', 'Full-Stack Developer', 'API Developer'];
+const titles = ['Software Engineer', 'Backend Developer', 'API Engineer', 'Data Analyst'];
 let currentTitleIndex = 0;
 
 // Function to animate hero title with typing effect
