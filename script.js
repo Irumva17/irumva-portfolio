@@ -538,10 +538,21 @@ const viewCvBtn = document.getElementById('viewCvBtn');
 const closeCvLightbox = document.getElementById('closeCvLightbox');
 
 // Open CV lightbox
-viewCvBtn.addEventListener('click', function() {
-    cvLightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-});
+if (viewCvBtn) {
+    viewCvBtn.addEventListener('click', function(e) {
+        if (e) e.preventDefault();
+        const lightbox = document.getElementById('cvLightbox');
+        if (lightbox) {
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            console.log('Opening CV Lightbox');
+        } else {
+            console.error('CV Lightbox element not found');
+        }
+    });
+} else {
+    console.error('View CV Button not found in DOM');
+}
 
 // Close CV lightbox
 function closeCvModal() {

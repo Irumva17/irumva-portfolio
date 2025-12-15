@@ -704,3 +704,13 @@ a:focus-visible {
     border: 1px solid currentColor;
   }
 }
+/* Ensure hero content is above particles */
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fix for mobile menu touch target if needed */
+.mobile-menu-btn {
+  z-index: 1001;
+}
